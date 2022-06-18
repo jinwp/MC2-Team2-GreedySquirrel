@@ -23,6 +23,27 @@ struct DictionaryUseCase {
             }
         }
     }
+
+    func getDictionaryDetailCategory(completion: @escaping (DictionaryDetailCategory) -> Void) {
+           repository.fetchDictionaryCategory { result in
+               switch result {
+               case .success(let dictionaryCategory) : completion(dictionaryCategory)
+               case .failure(let error) :
+                   os_log(.error, log: .default, "\(error.localizedDescription)")
+               }
+           }
+       }
+
+    func getDictionaryEquipmentContent(completion: @escaping (DictionaryEquipmentContent) -> Void) {
+        repository.fetchDictionaryContent { result in
+            switch result {
+            case .success(let dictionaryContent) : completion(dictionaryContent)
+            case .failure(let error) :
+                os_log(.error, log: .default, "\(error.localizedDescription)")
+            }
+        }
+    }
+
     func fetchImageData(fromURLString urlString: String, completion: @escaping (Data) -> Void) {
         repository.fetchImage(urlString: urlString) { result in
             switch result {

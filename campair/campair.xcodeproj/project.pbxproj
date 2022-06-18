@@ -152,6 +152,8 @@
 		CC9D118F2857337A000FEC81 /* EditorRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D118E2857337A000FEC81 /* EditorRepository.swift */; };
 		F62A6D1C2859B9BC00755AF3 /* DictionaryDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62A6D1B2859B9BC00755AF3 /* DictionaryDetailedView.swift */; };
 		F62A6D1E2859BC4400755AF3 /* DictionaryMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62A6D1D2859BC4400755AF3 /* DictionaryMainView.swift */; };
+		F6AC5585285DD0B3008CA2E4 /* DictionaryDetailCategoryData.json in Resources */ = {isa = PBXBuildFile; fileRef = F6AC5584285DD0B3008CA2E4 /* DictionaryDetailCategoryData.json */; };
+		F6AC5587285DD0C2008CA2E4 /* DictionaryEquipmentContentData.json in Resources */ = {isa = PBXBuildFile; fileRef = F6AC5586285DD0C2008CA2E4 /* DictionaryEquipmentContentData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -303,6 +305,8 @@
 		EEE262B177D80904B01C5D51 /* Pods_campair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_campair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F62A6D1B2859B9BC00755AF3 /* DictionaryDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDetailedView.swift; sourceTree = "<group>"; };
 		F62A6D1D2859BC4400755AF3 /* DictionaryMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryMainView.swift; sourceTree = "<group>"; };
+		F6AC5584285DD0B3008CA2E4 /* DictionaryDetailCategoryData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = DictionaryDetailCategoryData.json; path = campair/UseCase/DictionaryDetailCategoryData.json; sourceTree = SOURCE_ROOT; };
+		F6AC5586285DD0C2008CA2E4 /* DictionaryEquipmentContentData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = DictionaryEquipmentContentData.json; path = campair/UseCase/DictionaryEquipmentContentData.json; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -532,6 +536,8 @@
 			isa = PBXGroup;
 			children = (
 				CC215E3C285DB6E900B5DBDA /* DictionaryMainCollectionData.json */,
+				F6AC5584285DD0B3008CA2E4 /* DictionaryDetailCategoryData.json */,
+				F6AC5586285DD0C2008CA2E4 /* DictionaryEquipmentContentData.json */,
 			);
 			path = Dictionary;
 			sourceTree = "<group>";
@@ -899,7 +905,9 @@
 				CC215E37285DAAEC00B5DBDA /* 돗자리.png in Resources */,
 				CC215DF6285D7D1000B5DBDA /* 폴딩_테이블.png in Resources */,
 				CC215DD7285D7D1000B5DBDA /* 간이화장실_변기.png in Resources */,
+				F6AC5585285DD0B3008CA2E4 /* DictionaryDetailCategoryData.json in Resources */,
 				CC215DC2285D7D1000B5DBDA /* 버너_스토브.png in Resources */,
+				F6AC5587285DD0C2008CA2E4 /* DictionaryEquipmentContentData.json in Resources */,
 				CC215E25285D922F00B5DBDA /* 조명.png in Resources */,
 				CC215E09285D7D1000B5DBDA /* 반미라형_침낭.png in Resources */,
 				CC215DCD285D7D1000B5DBDA /* 릴렉스_체어.png in Resources */,

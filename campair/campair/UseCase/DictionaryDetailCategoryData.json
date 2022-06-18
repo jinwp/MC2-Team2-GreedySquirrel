@@ -1,0 +1,21 @@
+
+{
+    "name" : "텐트",
+    "equipmentList" : [
+        {
+            "name" : "그늘막 텐트",
+            "paintingName" : "폴대2",
+            "paintingURLString" : ""
+        },
+        {
+            "name" : "동글동글 텐트",
+            "paintingName" : "폴대2",
+            "paintingURLString" : ""
+        },
+        {
+            "name" : "창문 텐트",
+            "paintingName" : "폴대2",
+            "paintingURLString" : ""
+        }
+    ]
+}

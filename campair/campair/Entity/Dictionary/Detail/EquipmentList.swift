@@ -10,10 +10,10 @@ import Foundation
 struct EquipmentList: Codable {
     let name: String
     let paintingName: String
-    var paintingURL: String
-    init(name: String = "", paintingName: String = "임시이미지", paintingURL: String = "") {
+    var paintingURLString: String
+    init(name: String = "", paintingName: String = "임시이미지", paintingURLString: String = "") {
         self.name = name
         self.paintingName = paintingName
-        self.paintingURL = paintingURL
+        self.paintingURLString = paintingURLString
     }
 }
