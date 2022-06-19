@@ -37,6 +37,7 @@ struct DictionaryMainView: View {
             viewModel.viewAppeared()
         }
     }
+
     var contentMainTitleView : some View {
         HStack {
             Text("여행의 시작은\n장비 준비부터")

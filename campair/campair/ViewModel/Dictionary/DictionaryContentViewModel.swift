@@ -13,8 +13,7 @@ final class DictionaryContentViewModel: ObservableObject {
     @Published var dictionaryEquipmentContent: DictionaryEquipmentContent?
     @Published var imageSet: [String: Data] = [:]
     func viewAppeared() {
-        self.dictionaryUseCase.getDictionaryEquipmentContent {
-            [weak self] dictionaryEquipmentContentData in
+        self.dictionaryUseCase.getDictionaryEquipmentContent { [weak self] dictionaryEquipmentContentData in
             guard let self = self else { return }
             self.dictionaryEquipmentContent = dictionaryEquipmentContentData
             print(dictionaryEquipmentContentData)

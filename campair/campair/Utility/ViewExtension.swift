@@ -22,7 +22,7 @@ extension View {
     func caption1DefaultDarkGray() -> some View {
         self
             .foregroundColor(Color.customDarkGray)
-            .font(.system(.caption, design: .default))
+            .font(.system(.subheadline, design: .default))
     }
     func bodyBold000000Opacity60() -> some View {
             self

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var viewModel = DictionaryContentViewModel()
+    @ObservedObject var viewModel = DictionaryDetailedViewModel()
     var body: some View {
         VStack {
             Text("Fighting squerrels!")

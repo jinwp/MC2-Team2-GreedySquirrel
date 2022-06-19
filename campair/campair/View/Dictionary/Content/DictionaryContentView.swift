@@ -8,62 +8,94 @@
 import SwiftUI
 
 struct DictionaryContentView: View {
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     let equipmentContent: DictionaryEquipmentContent
+    let equipmentCategory: String
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 0) {
-                Text(self.equipmentContent.name)
-                    .fontWeight(.bold)
-                    .font(.system(.title))
-                    .padding(.top, 40)
-                    .foregroundColor(Color(hex: "4F4F4F"))
-                HStack {
-                    Spacer()
-                    Image(self.equipmentContent.paintingName)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 190, height: 190)
-                        .padding(.vertical, 55)
-                    Spacer()
-                }
-                Text(self.equipmentContent.content)
-                    .bodyDefaultDarkGray()
+        VStack {
+            VStack(spacing: 0) {
                 Rectangle()
-                    .frame(height: 8)
+                    .ignoresSafeArea()
+                    .frame(height: 0)
                     .foregroundColor(Color(hex: "FEFCFB"))
-                    .padding(.vertical, 40)
-                if let prosArray = self.equipmentContent.pros {
-                    Text("장점")
-                        .fontWeight(Font.Weight.bold)
-                        .padding(.bottom, 10)
-                        .bodyBold000000Opacity60()
-                    let pros = prosArray.reduce("") {"\($0)\($1)\n"}
-                    Text(pros)
-                        .bodyDefaultDarkGray()
+                HStack {
+                    Button(action: {
+                        self.mode.wrappedValue.dismiss()
+                    }, label: {
+                        Image(systemName: "chevron.left")
+                            .frame(width: 40, height: 40)
+                            .foregroundColor(Color.black)
+                    })
+                    .padding(.leading, 8)
+                    Spacer()
+                    Text(equipmentCategory)
+                        .padding(.trailing, 179)
                 }
-                if let consArray = self.equipmentContent.cons {
-                    Text("단점")
-                        .fontWeight(Font.Weight.bold)
-                        .padding(.bottom, 10)
-                        .bodyBold000000Opacity60()
-                        .padding(.top, 20)
-                    let cons = consArray.reduce("") {"\($0)\($1)\n"}
-                    Text(cons)
-                        .bodyDefaultDarkGray()
-                }
-                if let installationGuide = self.equipmentContent.installationGuide {
-                    Text("설치방법")
-                        .fontWeight(Font.Weight.bold)
-                        .padding(.bottom, 10)
-                        .bodyBold000000Opacity60()
-                        .padding(.top, 20)
-                    Text(installationGuide)
-                        .bodyDefaultDarkGray()
-                }
+                .padding(.bottom, 10)
+                .background(Color(hex: "FEFCFB"))
+                Rectangle()
+                    .frame(height:1)
+                    .foregroundColor(Color(hex:"E8E8E8"))
             }
-            .padding(.bottom, 50)
-            .padding(.horizontal, 20)
+
+            ScrollView {
+                VStack(alignment: .leading, spacing: 0) {
+                    Text(self.equipmentContent.name)
+                        .fontWeight(.bold)
+                        .font(.system(.title))
+                        .padding(.top, 40)
+                        .foregroundColor(Color(hex: "4F4F4F"))
+                    HStack {
+                        Spacer()
+                        Image(self.equipmentContent.paintingName)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 190, height: 190)
+                            .padding(.vertical, 55)
+                        Spacer()
+                    }
+                    Text(self.equipmentContent.content)
+                        .bodyDefaultDarkGray()
+                    Rectangle()
+                        .frame(height: 8)
+                        .foregroundColor(Color(hex: "FEFCFB"))
+                        .padding(.vertical, 40)
+                    if let prosArray = self.equipmentContent.pros {
+                        Text("장점")
+                            .fontWeight(Font.Weight.bold)
+                            .padding(.bottom, 10)
+                            .bodyBold000000Opacity60()
+                        let pros = prosArray.reduce("") {"\($0)\($1)\n"}
+                        Text(pros)
+                            .bodyDefaultDarkGray()
+                    }
+                    if let consArray = self.equipmentContent.cons {
+                        Text("단점")
+                            .fontWeight(Font.Weight.bold)
+                            .padding(.bottom, 10)
+                            .bodyBold000000Opacity60()
+                            .padding(.top, 20)
+                        let cons = consArray.reduce("") {"\($0)\($1)\n"}
+                        Text(cons)
+                            .bodyDefaultDarkGray()
+                    }
+                    if let installationGuide = self.equipmentContent.installationGuide {
+                        Text("설치방법")
+                            .fontWeight(Font.Weight.bold)
+                            .padding(.bottom, 10)
+                            .bodyBold000000Opacity60()
+                            .padding(.top, 20)
+                        Text(installationGuide)
+                            .bodyDefaultDarkGray()
+                    }
+                }
+                .padding(.bottom, 50)
+                .padding(.horizontal, 20)
+            }
         }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
 }
 
@@ -78,7 +110,7 @@ struct DictionaryContentView_Previews: PreviewProvider {
                                     pros: ["의자에서 누워있는 듯한 느낌이에요.", "'쉼'을 목적으로 나온 의자.", "다리 폭이 넓어서 넘어질 위험이 적어요."],
                                     cons: ["접었을 때도 사이즈가 크고 무거워요.", "앉아서 음식을 먹거나 책을 읽을 때는 불편할 수 있어요."],
                                     installationGuide: "접혀있는 의자를 그대로 펼치기 때문에 설치가 편리해요."
-                                )
+                                ), equipmentCategory: "텐트"
         )
     }
 }
