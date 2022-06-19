@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+private struct OffsetPreferenceKey: PreferenceKey {
+  static var defaultValue: CGFloat = .zero
+  static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {}
+}
+
 struct DictionaryDetailedView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @State var selectedEquipmentNumber: Int = 0
@@ -58,10 +63,10 @@ struct DictionaryDetailedView: View {
                                     }
                                 })
                             }
-                            .padding(.horizontal, 20)
-                            .padding(.bottom, 19)
                         }
                     }
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 19)
                     .background(Color(hex:"FEFCFB"))
 
                 Rectangle()
