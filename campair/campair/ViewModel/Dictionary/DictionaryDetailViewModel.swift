@@ -35,10 +35,4 @@ final class DictionaryDetailedViewModel: ObservableObject {
             }
         }
     }
-//
-//    func getData() {
-//        viewAppeared { returnedUseCase in
-//            <#code#>
-//        }
-//    }
 }
