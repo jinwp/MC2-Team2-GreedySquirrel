@@ -27,7 +27,6 @@ struct InterestEquipmentView: View {
                             .frame(maxWidth: .infinity)
                             .padding(.top, 25)
                     }
-                    .padding(.horizontal, 20)
                     Spacer()
                 } else {
                     let sortedArray = viewModel.interestEquipments.sorted { $0.0 < $1.0 }
@@ -41,8 +40,8 @@ struct InterestEquipmentView: View {
                         .padding(.horizontal, 20)
                     }
                     .foregroundColor(Color(hex: "4F4F4F"))
+                    Spacer()
                 }
-                Spacer()
             }
             .onAppear {
                 viewModel.viewAppeared()
