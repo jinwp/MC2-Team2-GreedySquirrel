@@ -17,7 +17,6 @@ struct DictionaryDetailedView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @State var selectedEquipmentNumber: Int = 0
     @State var verticalScrollIndex: Int = 0
-    @State var horizontalScrollIndex: Int = 0
     @StateObject var viewModel = DictionaryDetailedViewModel()
 
     var body: some View {
@@ -49,7 +48,6 @@ struct DictionaryDetailedView: View {
                             ForEach(viewModel.dictionaryPreDetailCategory.dictionaryDetailCategory.indices, id: \.self) { index in
                                 Button {
                                     selectedEquipmentNumber = index
-                                    horizontalScrollIndex = index
                                     verticalScrollIndex = index
                                 } label: {
                                     Text(viewModel.dictionaryPreDetailCategory.dictionaryDetailCategory[index].name)
