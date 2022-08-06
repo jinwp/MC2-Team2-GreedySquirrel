@@ -42,7 +42,6 @@ struct DictionaryDetailedView: View {
                         .frame(width: 40, height: 40)
                 }
                 .padding(.horizontal, 8)
-//                                .padding(.bottom, 25)
                 .background(Color(hex: "FEFCFB"))
                 ScrollView(.horizontal, showsIndicators: false) {
                     ScrollViewReader { proxy in
@@ -51,6 +50,7 @@ struct DictionaryDetailedView: View {
                                 Button {
                                     selectedEquipmentNumber = index
                                     horizontalScrollIndex = index
+                                    verticalScrollIndex = index
                                 } label: {
                                     Text(viewModel.dictionaryPreDetailCategory.dictionaryDetailCategory[index].name)
                                         .foregroundColor(self.selectedEquipmentNumber == index ? Color.white : Color(#colorLiteral(red: 0.6071556211, green: 0.603967011, blue: 0.6179282665, alpha: 1)))
@@ -67,79 +67,63 @@ struct DictionaryDetailedView: View {
                                     proxy.scrollTo(selectedEquipmentNumber, anchor: .top)
                                 }
                             }
-                            .onChange(of: horizontalScrollIndex, perform: { value in
+                            .onChange(of: selectedEquipmentNumber, perform: { value in
                                 withAnimation(.spring()) {
                                     proxy.scrollTo(value, anchor: .center)
                                 }
-                                horizontalScrollIndex = value
+                                selectedEquipmentNumber = value
                             })
-//                            .onChange(of: scrollOffset, perform: { _ in
-//                                withAnimation(.spring()) {
-//                                    if scrollOffset < 0 && scrollOffset > -204 {
-////                                        proxy.scrollTo(0, anchor: .center)
-//                                        horizontalScrollIndex = 0
-//                                    }
-//                                    else if scrollOffset > -1336 {
-////                                        proxy.scrollTo(1, anchor: .center)
-//                                        horizontalScrollIndex = 1
-//                                    }
-//                                    else if scrollOffset > -1668 {
-////                                        proxy.scrollTo(2, anchor: .center)
-//                                        horizontalScrollIndex = 2
-//                                    }
-//                                    else if scrollOffset > -2305 {
-////                                        proxy.scrollTo(3, anchor: .center)
-//                                        horizontalScrollIndex = 3
-//                                    }
-//                                    else if scrollOffset > -2795 {
-////                                        proxy.scrollTo(4, anchor: .center)
-//                                        horizontalScrollIndex = 4
-//                                    }
-//                                    else if scrollOffset > -3699 {
-////                                        proxy.scrollTo(5, anchor: .center)
-//                                        horizontalScrollIndex = 5
-//                                    }
-//                                    else if scrollOffset > -4139 {
-////                                        proxy.scrollTo(6, anchor: .center)
-//                                        horizontalScrollIndex = 6
-//                                    }
-//                                    else if scrollOffset > -4365 {
-////                                        proxy.scrollTo(7, anchor: .center)
-//                                        horizontalScrollIndex = 7
-//                                    }
-//                                    else if scrollOffset > -4945 {
-////                                        proxy.scrollTo(8, anchor: .center)
-//                                        horizontalScrollIndex = 8
-//                                    }
-//                                    else if scrollOffset > -5784 {
-////                                        proxy.scrollTo(9, anchor: .center)
-//                                        horizontalScrollIndex = 9
-//                                    }
-//                                    else if scrollOffset > -6194 {
-////                                        proxy.scrollTo(10, anchor: .center)
-//                                        horizontalScrollIndex = 10
-//                                    }
-//                                    else if scrollOffset > -6824 {
-////                                        proxy.scrollTo(11, anchor: .center)
-//                                        horizontalScrollIndex = 11
-//                                    }
-//                                    else if scrollOffset > -7171 {
-////                                        proxy.scrollTo(12, anchor: .center)
-//                                        horizontalScrollIndex = 12
-//                                    }
-//                                    else if scrollOffset > -7811 {
-////                                        proxy.scrollTo(13, anchor: .center)
-//                                        horizontalScrollIndex = 13
-//                                    }
-//                                    else if scrollOffset > -8442 {
-////                                        proxy.scrollTo(14, anchor: .center)
-//                                        horizontalScrollIndex = 14}
-//                                    else {
-////                                        proxy.scrollTo(15, anchor: .center)
-//                                        horizontalScrollIndex = 15
-//                                    }
-//                                }
-//                            })
+                            .onChange(of: scrollOffset, perform: { _ in
+                                withAnimation(.spring()) {
+                                    if scrollOffset > -425 {
+                                        selectedEquipmentNumber = 0
+                                    }
+                                    else if scrollOffset > -1559 {
+                                        selectedEquipmentNumber = 1
+                                    }
+                                    else if scrollOffset > -1914 {
+                                        selectedEquipmentNumber = 2
+                                    }
+                                    else if scrollOffset > -2557 {
+                                        selectedEquipmentNumber = 3
+                                    }
+                                    else if scrollOffset > -2980 {
+                                        selectedEquipmentNumber = 4
+                                    }
+                                    else if scrollOffset > -3925 {
+                                        selectedEquipmentNumber = 5
+                                    }
+                                    else if scrollOffset > -4357 {
+                                        selectedEquipmentNumber = 6
+                                    }
+                                    else if scrollOffset > -4610 {
+                                        selectedEquipmentNumber = 7
+                                    }
+                                    else if scrollOffset > -5142 {
+                                        selectedEquipmentNumber = 8
+                                    }
+                                    else if scrollOffset > -5987 {
+                                        selectedEquipmentNumber = 9
+                                    }
+                                    else if scrollOffset > -6426 {
+                                        selectedEquipmentNumber = 10
+                                    }
+                                    else if scrollOffset > -7062 {
+                                        selectedEquipmentNumber = 11
+                                    }
+                                    else if scrollOffset > -7385 {
+                                        selectedEquipmentNumber = 12
+                                    }
+                                    else if scrollOffset > -8028 {
+                                        selectedEquipmentNumber = 13
+                                    }
+                                    else if scrollOffset > -8674 {
+                                        selectedEquipmentNumber = 14}
+                                    else {
+                                        selectedEquipmentNumber = 15
+                                    }
+                                }
+                            })
                         }
                     }
                 }
@@ -150,46 +134,6 @@ struct DictionaryDetailedView: View {
                 Rectangle()
                     .frame(height: 1)
                     .foregroundColor(Color(hex: "E8E8E8"))
-//                ScrollView {
-//                    ScrollViewReader { proxy in
-//                        ForEach(viewModel.dictionaryPreDetailCategory.dictionaryDetailCategory.indices, id: \.self) { preindex in
-//                            VStack {
-//                                Text(viewModel.dictionaryPreDetailCategory.dictionaryDetailCategory[preindex].name)
-//                                    .font(.system(.title))
-//                                    .fontWeight(.bold)
-//                                    .frame(maxWidth: 350, alignment: .leading)
-//                                    .padding(.bottom, 14)
-//                                    .padding(.top, 41)
-//                                ForEach(viewModel.dictionaryPreDetailCategory.dictionaryDetailCategory[preindex].equipmentList.indices, id: \.self) { index in
-//                                    NavigationLink(
-//                                        destination: DictionaryContentView(jsonFileName: self.viewModel.dictionaryPreDetailCategory.dictionaryDetailCategory[preindex].equipmentList.sorted(by: { $0.paintingName < $1.paintingName })[index].paintingName),
-//                                        label: {
-//                                        EquipmentBox(imageSet: self.$viewModel.imageSet, imageName: self.viewModel.dictionaryPreDetailCategory.dictionaryDetailCategory[preindex].equipmentList.sorted(by: { $0.paintingName < $1.paintingName })[index].paintingName, equipmentName: self.viewModel.dictionaryPreDetailCategory.dictionaryDetailCategory[preindex].equipmentList.sorted(by: { $0.name < $1.name })[index].name)
-//                                    })
-//                                    .simultaneousGesture(TapGesture().onEnded {
-//                                        print(self.viewModel.dictionaryPreDetailCategory.dictionaryDetailCategory[preindex].equipmentList.sorted(by: { $0.paintingName < $1.paintingName })[index].paintingName)
-////                                        DictionaryDetailedView.onoff = false
-//                                    })
-//                                    .padding(.bottom, index != viewModel.dictionaryPreDetailCategory.dictionaryDetailCategory[preindex].equipmentList.count-1 ? 6 : 40)
-//                                }
-//                                Rectangle()
-//                                    .frame(height: 8)
-//                                    .foregroundColor(Color(hex: "FEFCFB"))
-//                            }
-//                        }
-//                        .onAppear {
-//                            withAnimation(.spring()) {
-//                                proxy.scrollTo(selectedEquipmentNumber, anchor: .top)
-//                            }
-//                        }
-//                        .onChange(of: selectedEquipmentNumber, perform: { value in
-//                            withAnimation(.spring()) {
-//                                proxy.scrollTo(value, anchor: .top)
-//                            }
-//                        })
-//                    }
-//                }
-
                 ScrollViewOffset(color: "FFFFFF") {
                     ScrollViewReader { proxy in
                         ForEach(viewModel.dictionaryPreDetailCategory.dictionaryDetailCategory.indices, id: \.self) { preindex in
@@ -218,7 +162,7 @@ struct DictionaryDetailedView: View {
                                 proxy.scrollTo(selectedEquipmentNumber, anchor: .top)
                             }
                         }
-                        .onChange(of: selectedEquipmentNumber, perform: { value in
+                        .onChange(of: verticalScrollIndex, perform: { value in
                             withAnimation(.spring()) {
                                 proxy.scrollTo(value, anchor: .top)
                             }
@@ -231,20 +175,6 @@ struct DictionaryDetailedView: View {
             }
         }
         .navigationBarHidden(true)
-//        .toolbar {
-//            ToolbarItem(placement: .navigation) {
-//                VStack {
-//                    Text(viewModel.dictionaryPreDetailCategory.dictionaryDetailCategory[selectedEquipmentNumber].name)
-//                        .font(.headline)
-//                }
-//            }
-//        }
-//        .navigationTitle("")
-//        .accentColor(Color(hex: "4F4F4F"))
-//        .onAppear {
-//            DictionaryDetailedView.onoff = true
-//        }
-//        .navigationBarTitle(self.viewModel.dictionaryPreDetailCategory.dictionaryDetailCategory[selectedEquipmentNumber].name, displayMode: .inline)
     }
 }
 
