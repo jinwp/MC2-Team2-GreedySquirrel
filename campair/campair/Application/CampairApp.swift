@@ -7,19 +7,31 @@
 
 import SwiftUI
 
-class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-        Thread.sleep(forTimeInterval: 1)
-        return true
+@main
+struct CampairApp: App {
+    @State var isSplashView = true
+    var body: some Scene {
+        WindowGroup {
+            if isSplashView {
+                LaunchScreenView()
+                    .ignoresSafeArea()
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                            isSplashView = false
+                        }
+                    }
+            } else {
+                TabbarView()
+            }
+        }
     }
 }
 
-@main
-struct CampairApp: App {
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    var body: some Scene {
-        WindowGroup {
-            TabbarView()
-        }
+struct LaunchScreenView: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> some UIViewController {
+        let controller = UIStoryboard(name: "Launch Screen", bundle: nil).instantiateInitialViewController()!
+        return controller
+    }
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
     }
 }
