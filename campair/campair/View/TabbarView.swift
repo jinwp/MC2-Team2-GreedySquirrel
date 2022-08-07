@@ -29,11 +29,11 @@ struct TabbarView: View {
                         Image(uiImage: interestEquipmentIcon!)
                         Text("관심장비")
                     }
+            }
             .navigationBarHidden(true)
             .environmentObject(InterestEquipmentViewModel())
             .accentColor(Color(hex: "4F4F4F"))
         }
-    }
     }
 }
 

@@ -22,7 +22,7 @@ struct DictionaryMainView: View {
             LazyVGrid(columns: self.columns, spacing: 23) {
                 ForEach(self.viewModel.dictionaryMainCollection.dictionaryMainCategory.indices, id: \.self) { index in
                     let equipmentName = self.viewModel.dictionaryMainCollection.dictionaryMainCategory[index]
-                    NavigationLink(destination: DictionaryDetailedView(selectedEquipmentNumber: index), label: {
+                    NavigationLink(destination: DictionaryDetailedView(scrollOffset: 0, selectedEquipmentNumber: index), label: {
                         CategoryButtonView(imageSet: self.$viewModel.imageSet, imageName: equipmentName.paintingName, catagoryName: equipmentName.categoryName)
                     })
                 }

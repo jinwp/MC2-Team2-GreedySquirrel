@@ -13,7 +13,7 @@ private struct OffsetPreferenceKey: PreferenceKey {
 }
 
 struct DictionaryDetailedView: View {
-    @State private var scrollOffset: CGFloat = .zero
+    @State var scrollOffset: CGFloat = .zero
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @State var selectedEquipmentNumber: Int = 0
     @State var verticalScrollIndex: Int = 0
@@ -75,49 +75,35 @@ struct DictionaryDetailedView: View {
                                 withAnimation(.spring()) {
                                     if scrollOffset > -425 {
                                         selectedEquipmentNumber = 0
-                                    }
-                                    else if scrollOffset > -1559 {
+                                    } else if scrollOffset > -1559 {
                                         selectedEquipmentNumber = 1
-                                    }
-                                    else if scrollOffset > -1914 {
+                                    } else if scrollOffset > -1914 {
                                         selectedEquipmentNumber = 2
-                                    }
-                                    else if scrollOffset > -2557 {
+                                    } else if scrollOffset > -2557 {
                                         selectedEquipmentNumber = 3
-                                    }
-                                    else if scrollOffset > -2980 {
+                                    } else if scrollOffset > -2980 {
                                         selectedEquipmentNumber = 4
-                                    }
-                                    else if scrollOffset > -3925 {
+                                    } else if scrollOffset > -3925 {
                                         selectedEquipmentNumber = 5
-                                    }
-                                    else if scrollOffset > -4357 {
+                                    } else if scrollOffset > -4357 {
                                         selectedEquipmentNumber = 6
-                                    }
-                                    else if scrollOffset > -4610 {
+                                    } else if scrollOffset > -4610 {
                                         selectedEquipmentNumber = 7
-                                    }
-                                    else if scrollOffset > -5142 {
+                                    } else if scrollOffset > -5142 {
                                         selectedEquipmentNumber = 8
-                                    }
-                                    else if scrollOffset > -5987 {
+                                    } else if scrollOffset > -5987 {
                                         selectedEquipmentNumber = 9
-                                    }
-                                    else if scrollOffset > -6426 {
+                                    } else if scrollOffset > -6426 {
                                         selectedEquipmentNumber = 10
-                                    }
-                                    else if scrollOffset > -7062 {
+                                    } else if scrollOffset > -7062 {
                                         selectedEquipmentNumber = 11
-                                    }
-                                    else if scrollOffset > -7385 {
+                                    } else if scrollOffset > -7385 {
                                         selectedEquipmentNumber = 12
-                                    }
-                                    else if scrollOffset > -8028 {
+                                    } else if scrollOffset > -8028 {
                                         selectedEquipmentNumber = 13
-                                    }
-                                    else if scrollOffset > -8674 {
-                                        selectedEquipmentNumber = 14}
-                                    else {
+                                    } else if scrollOffset > -8674 {
+                                        selectedEquipmentNumber = 14
+                                    } else {
                                         selectedEquipmentNumber = 15
                                     }
                                 }
@@ -157,7 +143,9 @@ struct DictionaryDetailedView: View {
                         }
                         .onAppear {
                             withAnimation(.spring()) {
-                                proxy.scrollTo(selectedEquipmentNumber, anchor: .top)
+                                if scrollOffset == 0 {
+                                    proxy.scrollTo(selectedEquipmentNumber, anchor: .top)
+                                }
                             }
                         }
                         .onChange(of: verticalScrollIndex, perform: { value in
