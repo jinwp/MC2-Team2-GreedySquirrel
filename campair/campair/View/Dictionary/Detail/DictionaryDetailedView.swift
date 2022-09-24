@@ -129,10 +129,11 @@ struct DictionaryDetailedView: View {
                                     .padding(.bottom, 14)
                                     .padding(.top, 41)
                                 ForEach(viewModel.dictionaryPreDetailCategory.dictionaryDetailCategory[preindex].equipmentList.indices, id: \.self) { index in
+                                    let temp = self.viewModel.dictionaryPreDetailCategory.dictionaryDetailCategory[preindex].equipmentList
                                     NavigationLink(
-                                        destination: DictionaryContentView(jsonFileName: self.viewModel.dictionaryPreDetailCategory.dictionaryDetailCategory[preindex].equipmentList.sorted(by: { $0.paintingName < $1.paintingName })[index].paintingName),
+                                        destination: DictionaryContentView(jsonFileName: temp.sorted(by: { $0.paintingName < $1.paintingName })[index].paintingName),
                                         label: {
-                                        EquipmentBox(imageSet: self.$viewModel.imageSet, imageName: self.viewModel.dictionaryPreDetailCategory.dictionaryDetailCategory[preindex].equipmentList.sorted(by: { $0.paintingName < $1.paintingName })[index].paintingName, equipmentName: self.viewModel.dictionaryPreDetailCategory.dictionaryDetailCategory[preindex].equipmentList.sorted(by: { $0.name < $1.name })[index].name)
+                                        EquipmentBox(imageSet: self.$viewModel.imageSet, imageName: temp.sorted(by: { $0.paintingName < $1.paintingName })[index].paintingName, equipmentName: temp.sorted(by: { $0.name < $1.name })[index].name)
                                     })
                                     .padding(.bottom, index != viewModel.dictionaryPreDetailCategory.dictionaryDetailCategory[preindex].equipmentList.count-1 ? 6 : 40)
                                 }

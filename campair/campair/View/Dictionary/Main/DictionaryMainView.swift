@@ -26,7 +26,7 @@ struct DictionaryMainView: View {
                         CategoryButtonView(imageSet: self.$viewModel.imageSet, imageName: equipmentName.paintingName, catagoryName: equipmentName.categoryName)
                     })
                 }
-                .foregroundColor(Color(red: 0.361, green: 0.361, blue: 0.361))
+                .foregroundColor(Color(hex: "4F4F4F"))
             }
             .padding(.top, 30.0)
             .padding(.horizontal, 40.0)
