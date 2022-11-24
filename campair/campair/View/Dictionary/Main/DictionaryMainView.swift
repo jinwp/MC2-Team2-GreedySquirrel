@@ -39,6 +39,10 @@ struct DictionaryMainView: View {
             .ignoresSafeArea()
             .navigationTitle("")
         }
+        .padding(.top, UIDevice.current.getSafeAreaTopValue)
+        .background(Color(red: 254/255, green: 252/255, blue: 251/255))
+        .ignoresSafeArea()
+        .navigationTitle("")
         .onAppear {
             viewModel.viewAppeared()
         }
