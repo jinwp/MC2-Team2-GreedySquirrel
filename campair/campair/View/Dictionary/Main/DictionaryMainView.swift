@@ -41,19 +41,19 @@ struct DictionaryMainView: View {
         }
     }
     var contentMainTitleView : some View {
-        HStack {
-            Text("여행의 시작은\n장비 준비부터")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .foregroundColor(Color(hex: "4F4F4F"))
-                .multilineTextAlignment(.leading)
-                .padding(.leading, 20.0)
-                .padding(.top, 36.0)
-            Spacer()
-            Image("CategoryBackground")
-                .frame(width: 150, height: 150, alignment: .center)
-                .padding(.leading, 20.0)
-        }
+            ZStack {
+                Text("여행의 시작은\n장비 준비부터")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.leading)
+                    .padding(.trailing, 171.0)
+                    .padding(.top, -148.0)
+                Image("squirrel")
+                    .frame(width: 186, height: 138, alignment: .leading)
+                    .padding(.leading, 191.0)
+                    .padding(.trailing, 13.0)
+                    .padding(.top, -160.0)
+            }
     }
 }
 
@@ -62,6 +62,7 @@ struct CategoryButtonView: View {
     let imageName: String
     let catagoryName: EquipmentGroup
     var body: some View {
+        ZStack {
             VStack(spacing: 0) {
                 if let uiImage = UIImage(data: imageSet[self.imageName] ?? imageSet["none"]! ) {
                     Image(uiImage: uiImage)
@@ -76,6 +77,7 @@ struct CategoryButtonView: View {
                 Text(self.catagoryName.korean)
                     .font(.system(size: 13))
             }
+        }
     }
 }
 
